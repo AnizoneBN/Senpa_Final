@@ -1,127 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Senpai Outfitters</title>
-  <link rel="stylesheet" href="/Order_Style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ordering...</title>
+
+<link rel="stylesheet" href="/Order_Style.css">
 </head>
 <body>
-  
-  <form action="https://formsubmit.co/rezwan.rizvy10@gmail.com" method="POST">
-  
-  
-  <div class="nice-form-group">
-  <label></label>
-  <input type="text" placeholder="Enter Your name" style="width: 330px; margin-left: 10px;" name="name" required>
-</div>
-
-
-
-
-  <div class="nice-form-group">
-  <label></label>
-  <input type="text" placeholder="Enter Your Address" style="width: 330px; margin-left: 10px;" name="name" required>
-</div>
-
-
-
-
+  <form id="myForm" enctype="multipart/form-data">
+    
+    <!--
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    -->
       <div class="nice-form-group">
-        <label></label>
-        <input type="tel" placeholder="Enter Your Phone Number" value="" style="width: 330px; margin-left: 10px;" required>
-      </div>
-      
-      
-      
-      
-            <div class="nice-form-group">
-        <label></label>
-        <input type="tel" placeholder="Enter Your Emergency Number" value="" style="width: 330px; margin-left: 10px;">
-      </div>
-      
-      
-      
-      
-      
-        <div class="nice-form-group">
-        <label></label>
-        <select style="width: 330px; margin-left: 10px;">
-          <option>Please select a Size</option>
-          <option>S</option>
-          <option>M</option>
-          <option>L</option>
-          <option>XL</option>
-          <option>XXL</option>
-        </select>
-      </div>
+  <label></label>
+  <input type="text" placeholder="আপনার নাম" style="width: 330px; margin-left: 10px;" name="Name" required>
+</div>
 
 
+  <div class="nice-form-group">
+  <label></label>
+  <input type="text" placeholder="আপনার বাসার ঠিকানা" style="width: 330px; margin-left: 10px;" name="Address" required>
+</div>
+
+<!--
 
 
+    <label for=phn>Number:</label><br>
+    <input type="number" id="number" name="Number" required><br>
+    
+    -->
           <div class="nice-form-group">
         <label></label>
-        <select style="width: 330px; margin-left: 10px;">
-          <option>Please select a Product Type</option>
+        <input type="number" placeholder="আপনার মোবাইল নাম্বার" value="" style="width: 330px; margin-left: 10px;" name="Number" required>
+      </div>
+      
+      
+      
+                <div class="nice-form-group">
+        <label></label>
+        <input type="number" placeholder="আপনার জরুরি নাম্বার" value="" style="width: 330px; margin-left: 10px;" name="Emergency">
+      </div>
+      
+      
+      
+                      <div class="nice-form-group">
+        <label></label>
+        <input type="text" placeholder="আপনার সাইজ বলুন: S,M,L,XL,XXL" value="" style="width: 330px; margin-left: 10px;" name="Size">
+      </div>
+      
+      
+            <!--
+                      <div class="nice-form-group">
+        <label></label>
+        <input type="text" placeholder="কি ধরনের জিনিস নিতে চান উল্লেখ করুন" value="" style="width: 330px; margin-left: 10px;" name="Type">
+      </div>
+      
+      -->
+      
+      
+      
+              <div class="nice-form-group">
+        <label></label>
+        <select style="width: 330px; margin-left: 10px;" id="sizeSelect">
+          <option>যেকোনো একটি বাছাই করুন</option>
+                    
           <option>Half Sleeve</option>
           <option>Oversized Drop Shoulder</option>
           <option>Full Sleeve</option>
           <option>Hoodie  </option>
           
         </select>
-      </div>  
+      </div>
+
+
       
       
       
-                  <div class="nice-form-group">
+      
+      
+      
+                      <div class="nice-form-group">
         <label></label>
-        <input type="tel" placeholder="How Many Products You Need?" value="" style="width: 330px; margin-left: 10px;" required>
+        <input type="text" placeholder="কত গুলো কিনতে চান?" value="" style="width: 330px; margin-left: 10px;" name="Quantity">
+      </div>
+
+
+      <div class="nice-form-group">
+        <label></label>
+        <input type="text" placeholder="এই নাম্বার এ সেন্ড করুন: 01908940279" value="" style="width: 330px; margin-left: 10px;" readonly>
+      </div>
+      
+                            <div class="nice-form-group">
+        <label></label>
+        <input type="text" placeholder="উপরের নাম্বার এ ৫০ টাকা সেন্ডমানি করেছেন?" value="" style="width: 330px; margin-left: 10px;" name="Payment50">
+      </div>
+                      
+                            <div class="nice-form-group">
+        <label></label>
+        <input type="text" placeholder="আপনার নাম্বার এর শেষ ৩ ডিজিট লিখুন" value="" style="width: 330px; margin-left: 10px;" name="Last_3Digit">
       </div>
       
       
-      
-      
-            <div class="nice-form-group">
+       <div class="nice-form-group">
         <label></label>
-        <input type="file" style="width: 330px; margin-left: 10px;" required>
+        <input type="text" placeholder="কতো সাইড প্রিন্ট করতে হবে?" value="" style="width: 330px; margin-left: 10px;" name="Print_Count">
       </div>
-      <br><br>
-      
+    <!--
+
+    <label for="number">Number:</label><br>
+    <input type="tel" id="number" name="number" required><br>
     
-        
-     
-     <p style="text-align: center; font-size: 10px;">Note: Provide the same information after click on this email: <br><br><span style="font-size: 18px; font-weight: bold;">senpaioutfitters4@gmail.com</span> <br><br>we recommend to view the <span style="font-size: 14px;"><a href="/Redirect_chart.html">Size - Chart</a></span><br><br>
-    click and hold on email address then click open, or direct contract support : <br><br><a href="https://www.facebook.com/profile.php?id=100071506269130">Senpai</a>
-     </p>
-     
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address" required><br>
+    <!--
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+    -->
+    <div class="nice-form-group">
+  <label for="message"></label>
+  <textarea rows="5"  id="message" name="Message" style="width: 330px; margin-left: 10px;"placeholder="এখানে আপনার মন্তব্য করুন" required></textarea>
+</div>
+    <!--
+    
+        <label for="photo">Photo:</label><br>
+    <input type="file" id="photo" name="photo" accept="image/*"><br>
+    <br>
+    
+    
+    -->
+                <div class="nice-form-group">
+        <label for="photo"></label>
+        <input type="file" style="width: 330px; margin-left: 10px;" id="photo" name="Photo" multiple accept="image/*"  required>
+      </div>
+
+      <br><br>
   
-       
-  <br><br>
 
-<div style="text-align: center;">
-  <hr style="border: none; height: 1px; background-color: #dfe3eb;">
-  <span style="background-color: transparent; padding: 0 10px; position: relative; top: -18px;">Or</span>
-</div>
-      
-<a href="https://mail.google.com" style="text-align: center; text-transform: uppercase; display: block;">Compose A new email</a>
+<p style="font-size: 11px; color: grey text-align: center; margin-left: 10px;">অর্ডার কারার আগে নিচের জিনিস গুলোতে ক্লিক করে বিস্তারিত জেনে আসুন।<br><br><span><a href="/Size_Chart.html">সাইজ চার্ট</a style="font-size: 10px; margin-left: 30px; text-align: center;"></span><span><a href="/Price.html" style="margin-left: 260px; text-align: center;">প্রাইস</a>
+</span></p>
+
+
+
+
+
 <br>
-<p style="text-align: center; ">Note: wait few seconds after click</p> 
-<br>
-<p style="text-align: center; font-size: 10px;text-transform:uppercase;">To Confirm Order you have to pay 50tk in Bkash or Nagad not <br><br>Mobile recharge only pay : 01908940279 remember to include last 3 <br><br>digit of your number on mail</p> 
-<br>
-<a href="/Price.html" style="Text-align: center; font-size: 15px; margin-left: 120px; text-transform: uppercase;">view Price Chart</a>
-<br><br>
-
-</div>
-
-</form>
 
 
 
 
 
+    <input type="button" value="Submit" onclick="submitForm()" style="background-color: #1877f2; color: #fff; padding: 10px 15px; border: none; border-radius: 3px; font-size: 16px; cursor: pointer; padding-left: 140px; padding-right: 140px; margin-left: 10px;" required>
+   
+   <br><br>
+    
+    <!--
+                  <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+  <button style="background-color: #1877f2; color: #fff; padding: 10px 15px; border: none; border-radius: 3px; font-size: 16px; cursor: pointer; padding-left: 148px; padding-right: 148px;" onclick="submitForm()">
+    <b>Login</b>
+  </button>
+  -->
+  </form>
+  
+  
+  
+<!--
+<script>
+  function submitForm() {
+    const formData = new FormData(document.getElementById("myForm"));
+    localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+    window.location.href = "/new/page2.html";
+}
+</script>
+-->
 
+<!--
+<script>
+  function submitForm() {
+    const formData = new FormData(document.getElementById("myForm"));
+    
+    // Convert the uploaded image to a data URL
+    const fileInput = document.getElementById('photo');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
 
+    reader.onloadend = function () {
+        const imageData = reader.result;
+        
+        // Add the image data to the form data
+        formData.append('photoData', imageData);
+        
+        // Store the form data in localStorage
+        localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+        
+        // Redirect to page2.html
+        window.location.href = "/new/Thankyou.html";
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        // If no image is uploaded, proceed without adding image data
+        localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+        window.location.href = "/new/page2.html";
+    }
+}
+</script>
+
+-->
+
+<script>
+  function submitForm() {
+    const formData = new FormData(document.getElementById("myForm"));
+    
+    // Get the selected size from the dropdown
+    const selectedSize = document.getElementById("sizeSelect").value;
+    
+    // Add the selected size to the form data
+    formData.append('Product_Name', selectedSize);
+    
+    // Convert the uploaded image to a data URL
+    const fileInput = document.getElementById('photo');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+        const imageData = reader.result;
+        
+        // Add the image data to the form data
+        formData.append('photoData', imageData);
+        
+        // Store the form data in localStorage
+        localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+        
+        // Redirect to Thankyou.html
+        window.location.href = "/new/Thankyou.html";
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        // If no image is uploaded, proceed without adding image data
+        localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+        window.location.href = "/Thankyou.html";
+    }
+}
+</script>
 </body>
 </html>

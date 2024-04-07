@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orders Management</title>
+<!--
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+</style>
+-->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #formDataDisplay {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  input[type="button"]:hover {
+    background-color: #45a049;
+  }
+
+  #uploadedImage {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <h2>New Order Received:</h2>
+  <div id="formDataDisplay"></div>
+ <img id="uploadedImage" src="" style="width: 300px; Border-radius: 5px;">
+ <!--
+<script>
+  const formData = JSON.parse(localStorage.getItem("formData"));
+  const formDataDisplay = document.getElementById("formDataDisplay");
+  for (const key in formData) {
+    if (formData.hasOwnProperty(key)) {
+      formDataDisplay.innerHTML += `<p><strong>${key}:</strong> ${formData[key]}</p>`;
+    }
+  }
+</script>
+-->
+<!--
+<script>
+  const formData = JSON.parse(localStorage.getItem("formData"));
+const formDataDisplay = document.getElementById("formDataDisplay");
+for (const key in formData) {
+    if (formData.hasOwnProperty(key)) {
+        if (key === 'photoData') {
+            // If the key is for image data, set the src attribute of the img tag
+            document.getElementById("uploadedImage").src = formData[key];
+        } else {
+            // For other form fields, display as before
+            formDataDisplay.innerHTML += `<p><strong>${key}:</strong> ${formData[key]}</p>`;
+        }
+    }
+}
+</script>
+
+-->
+<script>
+    // Retrieve existing data from localStorage or initialize an empty array
+    let formDataArray = JSON.parse(localStorage.getItem("formDataArray")) || [];
+    
+    // Retrieve new form data from localStorage
+    const newFormData = JSON.parse(localStorage.getItem("formData"));
+    
+    // Add new form data to the beginning of the array
+    formDataArray.unshift(newFormData);
+    
+    // Store the updated array in localStorage
+    localStorage.setItem("formDataArray", JSON.stringify(formDataArray));
+    
+    // Display all form data
+    const formDataDisplay = document.getElementById("formDataDisplay");
+    formDataArray.forEach((formData, index) => {
+        // Create a div for each form data entry
+        const entryDiv = document.createElement("div");
+        
+        // Add triple click event listener to delete the entry
+        entryDiv.addEventListener("click", function(event) {
+            if (event.detail === 3) { // Check if it's a triple click
+                // Remove the entry from the array and update localStorage
+                formDataArray.splice(index, 1);
+                localStorage.setItem("formDataArray", JSON.stringify(formDataArray));
+                // Remove the entry from the display and refresh
+                formDataDisplay.removeChild(entryDiv);
+            }
+        });
+        
+        // Populate the div with form data
+        for (const key in formData) {
+            if (formData.hasOwnProperty(key)) {
+                if (key === 'photoData') {
+                    // If the key is for image data, create an img tag
+                    const img = document.createElement("img");
+                    img.src = formData[key];
+                    img.style.width = "200px";
+                    img.style.borderRadius = "5px";
+                    img.style.marginBottom = "10px";
+                    entryDiv.appendChild(img);
+                } else {
+                    // For other form fields, create a paragraph element
+                    const paragraph = document.createElement("p");
+                    paragraph.innerHTML = `<strong>${key}:</strong> ${formData[key]}`;
+                    entryDiv.appendChild(paragraph);
+                }
+            }
+        }
+        // Add a horizontal line between form data entries
+        const hr = document.createElement("hr");
+        entryDiv.appendChild(hr);
+        
+        // Add the entry div to the display
+        formDataDisplay.appendChild(entryDiv);
+    });
+</script>
+</body>
+</html>
